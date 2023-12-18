@@ -1,0 +1,42 @@
+@import 'styles/variables.scss';
+
+.button {
+    color: $text-primary;
+    min-height: 52px;
+    padding: $space-s $space-l;
+    border-radius: $button-border-radius;
+    cursor: pointer;
+    transition: background-color .3s ease;
+    background-color: $background-button;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+
+    &:hover {
+        background-color: $background-button-hover;
+        color: $default-color;
+    }
+
+    &:active {
+        background-color: $background-button-hover;
+        color: $default-color;
+    }
+
+    &:disabled {
+        pointer-events: none;
+    }
+
+    &__text {
+        transition: color .3s ease;
+        color: $default-color;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+    }
+
+    &__loader {
+        transition: color .3s ease;
+        margin-right: 8px;
+        flex-shrink: 0;
+    }
+}
