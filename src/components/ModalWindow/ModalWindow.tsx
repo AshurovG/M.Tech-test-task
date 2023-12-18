@@ -20,6 +20,10 @@ const ModalWindow: React.FC<ModalWindowProps> = ({className}) => {
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
      const file = event.target.files?.[0];
      if (file) {
+        if (file.type !== 'text/csv') {
+            console.error('File is not a CSV file');
+            return;
+        }
         Papa.parse(file, {
             encoding: 'Windows-1251',
             complete: function(results: Papa.ParseResult<any>) {

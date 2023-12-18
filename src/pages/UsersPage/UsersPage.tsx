@@ -8,7 +8,6 @@ import Button from 'components/Button'
 
 const UsersPage = () => {
   const dispatch = useDispatch();
-  const fileData = useFileData();
   const navigate = useNavigate();
 
   const handleUploadButtonClick = () => {
