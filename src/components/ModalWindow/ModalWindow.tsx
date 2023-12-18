@@ -15,7 +15,6 @@ const ModalWindow: React.FC<ModalWindowProps> = ({className}) => {
     const dispatch = useDispatch();
     const fileData = useFileData();
     const fileInputRef = useRef<HTMLInputElement>(null);
-    // const [fileData, setFileData] = React.useState<any>([]);
     const navigate = useNavigate();
    
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {

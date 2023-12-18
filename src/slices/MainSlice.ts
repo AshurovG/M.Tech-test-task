@@ -23,6 +23,7 @@ const dataSlice = createSlice({
   reducers: {
     setFileData(state, action: PayloadAction<any>) {
       state.fileData = action.payload;
+      localStorage.setItem('data', JSON.stringify(action.payload));
       console.log(action.payload)
     },
   },
