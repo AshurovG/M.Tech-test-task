@@ -20,7 +20,7 @@ const parseTsConfigPaths = (paths: Record<string, string[]>): Record<string, str
 // https://vitejs.dev/config/
 export default defineConfig({
   server: { port: 3000 },
-  base: "/",
+  base: "M.Tech-test-task",
   plugins: [react()],
   resolve: {
     alias: parseTsConfigPaths(tsconfig.compilerOptions.paths),
