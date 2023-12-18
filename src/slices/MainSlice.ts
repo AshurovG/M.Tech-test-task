@@ -1,30 +1,27 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
-// import {   } from "../../types";
+import { UserData  } from "../../types";
 
 interface DataState {
-  fileData: UserData[] | null
+  fileData: UserData[] | null;
+  isFileValid: boolean;
 }
-
-
-type UserData = [
-  string, // name
-  string, // phone
-  string, // email
-  string, // bday
-  string // address
- ];
 
 const dataSlice = createSlice({
   name: "data",
   initialState: {
-    fileData: null
+    fileData: null,
+    isFileValid: true
   } as DataState,
   reducers: {
-    setFileData(state, action: PayloadAction<any>) {
+    setFileData(state, action: PayloadAction<UserData[]>) {
       state.fileData = action.payload;
       localStorage.setItem('data', JSON.stringify(action.payload));
-      console.log(action.payload)
+    },
+
+    setIsFileValid(state, action: PayloadAction<boolean>) {
+      state.isFileValid = action.payload;
+      console.log('isVaid is', action.payload)
     },
   },
 });
@@ -32,8 +29,12 @@ const dataSlice = createSlice({
 export const useFileData = () =>
   useSelector((state: { mainData: DataState }) => state.mainData.fileData);
 
+export const useIsFileValid = () =>
+  useSelector((state: { mainData: DataState }) => state.mainData.isFileValid);
+
 export const {
   setFileData: setFileDataAction,
+  setIsFileValid: setIsFileValidAction
 } = dataSlice.actions;
 
 export default dataSlice.reducer;

@@ -1,11 +1,11 @@
-import React, { useState ,useRef } from 'react'
+import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
-import Papa, { ParseResult } from 'papaparse';
+import Papa from 'papaparse';
 import cn from 'classnames'
 import styles from './ModalWindow.module.scss'
 import Button from 'components/Button'
 import { useDispatch } from 'react-redux';
-import { useFileData, setFileDataAction } from 'slices/MainSlice';
+import { useFileData, setFileDataAction, setIsFileValidAction } from 'slices/MainSlice';
 
 export type ModalWindowProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     className?: string;
@@ -21,8 +21,11 @@ const ModalWindow: React.FC<ModalWindowProps> = ({className}) => {
      const file = event.target.files?.[0];
      if (file) {
         if (file.type !== 'text/csv') {
+            dispatch(setIsFileValidAction(false))
             console.error('File is not a CSV file');
             return;
+        } else {
+            dispatch(setIsFileValidAction(true))
         }
         Papa.parse(file, {
             encoding: 'Windows-1251',
@@ -31,7 +34,7 @@ const ModalWindow: React.FC<ModalWindowProps> = ({className}) => {
               dispatch(setFileDataAction(results.data));
               navigate('/users')
             }
-           });
+        });
      }
     };
    
@@ -41,6 +44,7 @@ const ModalWindow: React.FC<ModalWindowProps> = ({className}) => {
    
     return (
         <div className={cn(styles.modal__window, className)}>
+
             <h3 className={styles['modal__window-title']}>
                 Выберите файл в формате CSV
             </h3>
