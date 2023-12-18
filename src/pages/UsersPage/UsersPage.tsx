@@ -1,19 +1,25 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './UsersPage.module.scss'
-import { useFileData } from 'slices/MainSlice'
+import { useDispatch } from 'react-redux'
+import { useFileData, setFileDataAction } from 'slices/MainSlice'
 import Table from 'components/Table'
 import Button from 'components/Button'
 
 const UsersPage = () => {
-  const fileData = useFileData()
+  const dispatch = useDispatch();
+  const fileData = useFileData();
+  const navigate = useNavigate();
 
-  React.useEffect(() => {
-    console.log(fileData)
-  }, [])
+  const handleUploadButtonClick = () => {
+    dispatch(setFileDataAction(null))
+    localStorage.removeItem('data');
+    navigate('/');
+  }
   return (
     <div className={styles.users__page}>
         <div className={styles['users__page-header']}>
-          <Button className={styles['users__page-btn']}>Загрузить новый файл</Button>
+          <Button className={styles['users__page-btn']} onClick={handleUploadButtonClick}>Загрузить новый файл</Button>
         </div>
         <Table className={styles['users__page-table']}/>
     </div>
