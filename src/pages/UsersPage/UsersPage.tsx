@@ -1,8 +1,7 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './UsersPage.module.scss'
 import { useDispatch } from 'react-redux'
-import { useFileData, setFileDataAction } from 'slices/MainSlice'
+import { setFileDataAction } from 'slices/MainSlice'
 import Table from 'components/Table'
 import Button from 'components/Button'
 

@@ -11,14 +11,14 @@
     display: inline-flex;
     align-items: center;
     border: none;
-
+ 
     &:hover {
         background-color: $background-button-hover;
         color: $default-color;
     }
 
     &:active {
-        background-color: $background-button-hover;
+        background-color: $background-button-active;
         color: $default-color;
     }
 

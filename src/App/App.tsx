@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { useFileData, setFileDataAction } from 'slices/MainSlice';
 import './App.module.scss'
@@ -13,7 +12,7 @@ function App() {
   
   useEffect(() => {
     const savedData = localStorage.getItem('data');
-    console.log(savedData)
+    console.log(fileData)
     if (savedData) {
       dispatch(setFileDataAction(JSON.parse(savedData)));
     }
@@ -34,7 +33,6 @@ function App() {
         </Routes>
         }
       </HashRouter>
-      <ToastContainer autoClose={1500} pauseOnHover={false} />
     </>
   )
 }

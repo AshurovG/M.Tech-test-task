@@ -14,14 +14,13 @@ const dataSlice = createSlice({
     isFileValid: true
   } as DataState,
   reducers: {
-    setFileData(state, action: PayloadAction<UserData[]>) {
+    setFileData(state, action: PayloadAction<UserData[] | null>) {
       state.fileData = action.payload;
       localStorage.setItem('data', JSON.stringify(action.payload));
     },
 
     setIsFileValid(state, action: PayloadAction<boolean>) {
       state.isFileValid = action.payload;
-      console.log('isVaid is', action.payload)
     },
   },
 });
