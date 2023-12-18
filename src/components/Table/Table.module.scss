@@ -6,8 +6,9 @@
     // color: $text-primary;
     font-weight: 400;
     border-radius: $modal-border-radius;
-    width: 1400px;
+    // width: 1400px;
     height: 950px;
+    width: 100%;
     border-spacing: 0;
 
     &__header {
@@ -33,9 +34,9 @@
     }
 
     &__body {
-        font-size: 12px;
         font-family: 'Noto Sans', sans-serif;
         &-item {
+            font-size: 12px;
             text-align-last: left;
             border-bottom: $border-body;
             padding: 15px 0 15px 35px;

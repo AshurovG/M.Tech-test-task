@@ -1,0 +1,25 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.users__page {
+    overflow: hidden;
+    &-header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-end;
+        padding: 20px 15px;
+    }
+
+    &-table {
+        margin-left: 33px;
+    }
+
+    &-btn {
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 12px;
+        width: 165px;
+        height: 36px;
+        padding: 10px 16px;
+    }
+}
