@@ -1,0 +1,53 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+#root {
+  font-family: "Nunito", sans-serif;
+  background: #FEFFFF;
+  min-height: 100vh;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+pre {
+  margin: 0;
+}
+
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f2f2f7;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding-inline-start: 0;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  background-color: #f2f2f7;
+  font-family: 'Mulish', serif;
+  min-height: 100vh;
+}
+
